@@ -14,9 +14,12 @@ export const validators = (validations) => {
         return res.status(422).json({ errors: errors.array() });
     };
 };
+export const loginvalidators = [
+    body("email").notEmpty().trim().isEmail().withMessage("Email is required !!"),
+    body("password").notEmpty().trim().isLength({ min: 6 }).withMessage("Password should have min 6 characters !! "),
+];
 export const signupvalidators = [
     body("name").notEmpty().withMessage("Name is required !!"),
-    body("email").trim().isEmail().withMessage("Email is required !!"),
-    body("password").trim().isLength({ min: 6 }).withMessage("Password should have min 6 characters !! "),
+    ...loginvalidators,
 ];
 //# sourceMappingURL=validators.js.map

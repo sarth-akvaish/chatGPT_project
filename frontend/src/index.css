@@ -1,0 +1,12 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #05101c;
+  color: white;
+}
+
+
+.image-inverted{
+  filter: invert(100%);
+}
