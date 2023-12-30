@@ -44,7 +44,7 @@ export const userSignUp = async (req: Request, res: Response, next: NextFunction
         res.cookie(COOKIE_NAME, token, { path: "/", domain: "localhost", expires, httpOnly: true, signed: true });
 
 
-        return res.status(200).json({ message: "Signup Successfull", id: user._id.toString() });
+        return res.status(201).json({ message: "Signup Successfull", name: user.name, email: user.email });
     } catch (error) {
         console.log(error)
         return res.status(400).json({ message: "ERROR", cause: error.messae });
@@ -79,7 +79,7 @@ export const userLogin = async (req: Request, res: Response, next: NextFunction)
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, { path: "/", domain: "localhost", expires, httpOnly: true, signed: true });
 
-        return res.status(200).json({ message: "OK", id: user._id.toString() });
+        return res.status(200).json({ message: "OK", name: user.name, email: user.email });
 
 
     } catch (error) {
