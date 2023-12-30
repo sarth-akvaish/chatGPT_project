@@ -7,6 +7,7 @@ const Login = () => {
   const auth = useAuth();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
 
     const formdata = new FormData(e.currentTarget);
@@ -15,7 +16,7 @@ const Login = () => {
     // console.log(email, password);
 
     try {
-      toast.loading(" Signing In", { id: "login" });
+      toast.loading("Signing In", { id: "login" });
       await auth?.login(email, password);
       toast.success(" Signed in Successfully", { id: "login" });
     } catch (error) {
